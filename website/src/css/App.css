@@ -14,16 +14,19 @@
 
 .App-header {
   grid-area: header;
-  align-items: stretch;
-  justify-content: center;
+  text-align: left;
   font-size: 66px;
   font-weight: bold;
   color: black;
+  padding-left: 12.5%;
+  border-bottom: 1px solid black;
 }
 
 .App-main {
   grid-area: main;
-  padding: 15px 5px 10px 5px;
+  margin: auto;
+  margin-top: 20px;
+  width: 75%;
   color: black;
 }
 
@@ -32,4 +35,60 @@
   height: 2.5rem;
   font-size: 16px;
   color: black;
+}
+
+.collapsible-header {
+  position: relative;
+  color: black;
+  cursor: pointer;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  border-bottom: 1px solid black;
+}
+
+.collapsible-title {
+  pointer-events: none;
+  font-size: 66px;
+  font-weight: bold;
+
+}
+
+.collapsible-image {
+  position: absolute;
+  pointer-events: none;
+  font-size: 31.5px;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: grey;
+}
+
+.collapsible-number {
+  pointer-events: none;
+  position: absolute;
+  font-size: 31.5px;
+  top: 50%;
+  left: 60%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: grey;
+}
+
+.collapsible-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.2s ease-out;
+}
+
+.card {
+  display: inline-block;
+  overflow: hidden;
+  margin: 10px;
+  width: 140px;
+  height: 140px;
+  border: 1px solid black;
 }
