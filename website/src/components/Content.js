@@ -1,6 +1,9 @@
 import React from 'react';
 import Collapsible from './Collabsible';
-import Painting from "./Painting"
+
+
+const baseUrl = "https://project-bpo3-wechsler-backend.herokuapp.com/api/";
+const apiVersion = "v2/"
 
 class Content extends React.Component{
 
@@ -17,16 +20,26 @@ class Content extends React.Component{
       return <div>Loading...</div>
     } else {
       return (
-        <Collapsible {...this.state}/>
+        <div>
+          <Collapsible amountPictures = {amountPictures} items = {items} />
+        </div>
       );
     }
   }
 
   componentDidMount() {
-    this.fetchData('https://project-bpo3-wechsler-backend.herokuapp.com/api/v2/de/paintings')
+    this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
+  }
+
+  componentDidUpdate(prevProps) {
+    console.log(prevProps);
+    if(this.props.language !== prevProps.language) {
+      this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
+    }
   }
   
   fetchData(url) {
+    console.log("fetching");
     fetch(url)
       .then(res => res.json())
       .then((data) => this.setState({

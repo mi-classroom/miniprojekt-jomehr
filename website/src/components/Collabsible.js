@@ -30,9 +30,11 @@ function Collapsible(props) {
     <div key={index} className="collapsible">
       
       <div className="collapsible-header" onClick={e => onCollapsible(e)}> 
-        <text className="collapsible-title">{year}</text>
-        <ImImage className = "collapsible-image"/>
-        <text className="collapsible-number">{amount}</text>
+        <h1 className="collapsible-title">{year}</h1>
+        <div className="collapsible-img-div">
+          <ImImage className = "collapsible-image"/>
+          <p className="collapsible-number">{amount}</p>
+        </div>
       </div>
       <div className="collapsible-content">
         <Painting paintings = {props.items} year = {year} onChangeAmount = {changeAmount} />

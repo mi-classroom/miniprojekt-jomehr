@@ -15,9 +15,8 @@ function Painting (props) {
       {changeAmount(paintings)}
       {paintings.map((painting, index) => (
         <div className="card" key={index}>
-          <body className="card-body">
-            <a href={painting?.images?.sizes?.xl?.src}> {painting?.images?.sizes?.xl?.src || "kein Link vorhanden"}</a> 
-          </body>
+          <h6>{painting?.title + " " + painting?.dating?.begin}</h6>
+          <a href={painting?.images?.sizes?.xl?.src}> {painting?.images?.sizes?.xl?.src || "kein Link vorhanden"}</a> 
         </div>
       ))}
     </div>
