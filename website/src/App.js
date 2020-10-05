@@ -9,9 +9,9 @@ class App extends Component {
     language: "de"
   }
 
-  handleChange = this.handleChange.bind(this);
+  //handleChange = this.handleChange.bind(this);
 
-  handleChange(event) {    
+  handleChange= (event) => {    
     this.setState({language: event.target.value});  
   }
 
@@ -19,11 +19,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="header-title">CDA_</h1> 
-          <select className="header-lang-select" value={this.state.language} onChange={this.handleChange}>
-            <option value="de">Deutsch</option>
-            <option value="en">English</option>
-          </select>
+          <div className="App-header-content">
+            <h1 className="header-title">CDA_</h1> 
+            <select className="header-lang-select" value={this.state.language} onChange={this.handleChange}>
+              <option value="de">Deutsch</option>
+              <option value="en">English</option>
+            </select>
+          </div>
         </header>
         <div className="App-main">
           <Content language = {this.state.language}/>

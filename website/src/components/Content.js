@@ -8,32 +8,32 @@ const apiVersion = "v2/"
 class Content extends React.Component{
 
   state = {
-    amountPictures: 0,
     items: [],
     isLoaded: false
   };
 
   render() {
-    var {isLoaded, items, amountPictures} = this.state;
+    var {isLoaded, items} = this.state;
 
     if(!isLoaded) {
       return <div>Loading...</div>
     } else {
       return (
         <div>
-          <Collapsible amountPictures = {amountPictures} items = {items} />
+          <Collapsible items = {items}/>
         </div>
       );
     }
   }
 
   componentDidMount() {
-    this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
+    this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings?size=5")
   }
 
   componentDidUpdate(prevProps) {
     console.log(prevProps);
     if(this.props.language !== prevProps.language) {
+      console.log("fetching new data");
       this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
     }
   }

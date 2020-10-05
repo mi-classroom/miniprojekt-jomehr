@@ -4,7 +4,6 @@
   
   /* grid container settings */
   display: grid;
-  grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas: 
     'header'
@@ -17,27 +16,35 @@
   border-bottom: 1px solid black;
 }
 
+.App-header-content {
+  margin: auto;
+  width: 940px;
+}
+
 .header-title {
   float: left;
-  margin:20px;
-  margin-left: 12%;
-  font-size: 66px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 31.5px;
   font-weight: bold;
   color: black;
 }
 
 .header-lang-select {
   float: right;
-  margin-top: 50px;
-  margin-right: 15%;
+  margin-top: 30px;
+  margin-bottom: 30px;
   height: 25px;
   font-size: 16px;
 }
 
 .App-main {
   grid-area: main;
-  margin: auto;
-  width: 75%;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  
+  width: 960px;
   color: black;
 }
 
@@ -63,11 +70,18 @@
   font-weight: bold;
 }
 
+.collapsible-divider {
+  position: relative;
+  height: 2px;
+  width: 40%;
+  background-color:#b4b4b4;
+}
+
 .collapsible-img-div {
   pointer-events: none;
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 40%;
 }
 
 .collapsible-image {
@@ -75,8 +89,8 @@
   position: relative;
   float: left;
   margin-top: 10%;
-  font-size: 31.5px;
-  color: grey;
+  font-size: 16px;
+  color:#b4b4b4;
 }
 
 .collapsible-number {
@@ -84,8 +98,8 @@
   position: relative;
   float: left;
   margin-left: 10px;
-  font-size: 31.5px;
-  color: grey;
+  font-size: 16px;
+  color: #b4b4b4;
 }
 
 .collapsible-content {
@@ -95,10 +109,78 @@
 }
 
 .card {
-  display: inline-block;
   overflow: hidden;
+  float: left;
   margin: 10px;
   width: 140px;
   height: 140px;
   border: 1px solid black;
+}
+
+.painting-image {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+}
+
+.modal-backdrop {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.mymodal{
+  position: absolute;
+  margin: auto;
+  padding: 0;
+  width: 940px;
+  min-height: 480px;
+  left: 50%;
+  top: 50%;
+  border: 3px solid #b4b4b4;
+  transform: translate(-50%, -50%);
+}
+
+.modal-content{
+  display: grid;
+  min-height: 480px;
+  grid-template-columns: 1fr 1fr;
+  background-color: #222222;
+  color: white;
+}
+
+.modal-image {
+  margin: auto;
+  object-fit: contain;
+  background-color: black;
+}
+
+.modal-info {
+  padding: 10px;
+  text-align: left;
+}
+
+.modal-info-title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.modal-info-descr {
+  font-size: 18px;
+  padding-right: 10px;
+}
+
+.modal-info-button {
+  background-color:  #b4b4b4;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  text-align: center;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 50%;
 }
