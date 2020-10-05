@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Detail from './Detail';
 
 function Painting (props) {
@@ -7,12 +7,6 @@ function Painting (props) {
 
   //filter paintings by callabsible year
   const paintings = props.paintings.filter(painting => painting.dating.begin === props.year) 
-  
-  const handleChangeAmount = () => {
-    const amountPaintings = paintings.length
-    props.onChangeAmount(amountPaintings)
-    console.log("hCA: " + amountPaintings);
-  }
 
   //open modal when closed, othwerise open it. set index to index of painting clicked
   const toggleModal = (index) => {
@@ -39,6 +33,11 @@ function Painting (props) {
       setCurPainting(curPainting-1)
     }
   }
+
+  //update amount of paintings in collapsible. empty array as second parameter added to avoid infinite loop
+  useEffect(() => {
+    props.onChangeAmount(paintings.length)
+  },[])
 
   //return a painting preview card for each filtered painting
   return (
