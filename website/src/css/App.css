@@ -60,7 +60,6 @@
   color: black;
   cursor: pointer;
   width: 100%;
-  border-bottom: 1px solid black;
 }
 
 .collapsible-title {
@@ -70,10 +69,23 @@
   font-weight: bold;
 }
 
-.collapsible-divider {
-  position: relative;
+.collapsible-divider-1 {
+  pointer-events: none;
+  position: absolute;
   height: 2px;
-  width: 40%;
+  width: 33%;
+  top: 50%;
+  left: 15%;
+  background-color:#b4b4b4;
+}
+
+.collapsible-divider-2 {
+  pointer-events: none;
+  position: absolute;
+  height: 2px;
+  width: 45%;
+  top: 50%;
+  right: 0%;
   background-color:#b4b4b4;
 }
 
@@ -138,7 +150,6 @@
   margin: auto;
   padding: 0;
   width: 940px;
-  min-height: 480px;
   left: 50%;
   top: 50%;
   border: 3px solid #b4b4b4;
@@ -147,21 +158,23 @@
 
 .modal-content{
   display: grid;
-  min-height: 480px;
+  height: 460px;
   grid-template-columns: 1fr 1fr;
   background-color: #222222;
   color: white;
 }
 
 .modal-image {
-  margin: auto;
   object-fit: contain;
+  max-height: 460px;
+  margin: auto;
   background-color: black;
 }
 
 .modal-info {
   padding: 10px;
-  text-align: left;
+  max-height: 460px;
+  text-align: left;;
 }
 
 .modal-info-title {
@@ -170,8 +183,26 @@
 }
 
 .modal-info-descr {
+  max-height: 50%;
+  overflow: auto;
+  text-overflow: ellipsis;
   font-size: 18px;
   padding-right: 10px;
+}
+
+.modal-info-repo {
+  position: absolute;
+  bottom: 120px;
+}
+
+.modal-info-owner {
+  position: absolute;
+  bottom: 100px;
+}
+
+.modal-info-dim {
+  position: absolute;
+  bottom: 60px;
 }
 
 .modal-info-button {
@@ -183,4 +214,27 @@
   display: inline-block;
   text-decoration: none;
   border-radius: 50%;
+  border: none;
+}
+
+.modal-info-next {
+  background-color: transparent;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  border: none;
+}
+
+.modal-info-prev {
+  background-color: transparent;
+  position: absolute;
+  bottom: 20px;
+  right: 80px;
+  border: none;
+}
+
+.modal-info-arrows {
+  color: white;
+  width: 25px;
+  height: 25px;
 }

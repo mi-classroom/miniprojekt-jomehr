@@ -1,22 +1,67 @@
 import React, { Component } from 'react';
+import {FiArrowRight, FiArrowLeft} from "react-icons/fi";
 
 class Detail extends Component {
 
+/*   state = {
+    curPainting: this.props.data,
+    counter: 0
+  } */
+
+/*   nextPainting = () => {
+    if(this.state.counter == this.state.curPainting.length-1) {
+      return null
+    } else {
+      console.log("next");
+      console.log(this.state.curPainting.length);
+      this.setState({
+        counter: this.state.counter+1
+      })
+    }
+  }
+
+  prevPainting = () => {
+    if(this.state.counter == 0) {
+      return null
+    } else {
+      console.log("prev");
+      this.setState({
+        counter: this.state.counter-1
+      })
+    }
+  } */
+
   render() {
     if(!this.props.show) {
-      //console.log("Detail: false");
+      //make body scrollable again
+      document.body.style.overflow = ""
       return null;
     } else {
-      console.log("Detail: true");
+      //prevent scrollable background
+      var curPainting = this.props.data[this.props.index]
+      document.body.style.overflow = "hidden"
       return (
         <div className="modal-backdrop">
           <div className="mymodal">
             <div className="modal-content">
-              <img className="modal-image" src={this.props.data.images?.sizes?.s?.src} alt="404 no picture available"/>
+              <img className="modal-image" src={curPainting.images?.sizes?.s?.src} alt="no picture available"/>
               <div className="modal-info">
-                <h2 className="modal-info-title" >{this.props.data.title}</h2>
-                <p className="modal-info-descr ">{this.props.data.description}</p>
+                <h2 className="modal-info-title" >{curPainting.title}</h2>
+                <p className="modal-info-descr">{curPainting.description}</p>
+                <h6 className="modal-info-repo">{curPainting.repository}</h6>
+                <h6 className="modal-info-owner">
+                  {(curPainting.repository === curPainting.owner) ? "" : curPainting.owner}
+                </h6>
+                <h6 className="modal-info-dim">
+                  {curPainting.structuredDimension?.height + " x " + curPainting.structuredDimension?.width + " cm"}
+                </h6>
                 <button className="modal-info-button" onClick={this.props.handleClose}> X </button>
+                <button className="modal-info-prev"> 
+                  <FiArrowLeft className="modal-info-arrows" onClick={this.props.prev}/>
+                </button>
+                <button className="modal-info-next"> 
+                  <FiArrowRight className="modal-info-arrows" onClick={this.props.next}/> 
+                </button>
               </div>
             </div>
           </div>

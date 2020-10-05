@@ -3,7 +3,7 @@ import Detail from './Detail';
 
 function Painting (props) {
   const [isOpen, setIsOpen] = useState(false)
-  const [curPainting, setCurPainting] = useState() 
+  const [curPainting, setCurPainting] = useState(0) 
 
   //filter paintings by callabsible year
   const paintings = props.paintings.filter(painting => painting.dating.begin === props.year) 
@@ -14,15 +14,33 @@ function Painting (props) {
     console.log("hCA: " + amountPaintings);
   }
 
+  //open modal when closed, othwerise open it. set index to index of painting clicked
   const toggleModal = (index) => {
     setIsOpen(!isOpen)
     setCurPainting(index)
-    console.log("isOPen: "+isOpen);
   }
 
-  //return a painting div for each filtered painting
-  //<h6>{painting?.title + " " + painting?.dating?.begin}</h6>
-  //<a href={painting?.images?.sizes?.xl?.src}> {painting?.images?.sizes?.xl?.src || "kein Link vorhanden"}</a> 
+  //set index +1 to render next painting. if index reaches end of array do nothing
+  const nextPainting = () => {
+    if(curPainting == props.paintings.length-1) {
+      return null
+    } else {
+      console.log("next");
+      setCurPainting(curPainting+1)
+    }
+  }
+
+  //set index -1 to render previous painting. if index reaches beginning of array do nothing
+  const prevPainting = () => {
+    if(curPainting == 0) {
+      return null
+    } else {
+      console.log("prev");
+      setCurPainting(curPainting-1)
+    }
+  }
+
+  //return a painting preview card for each filtered painting
   return (
     <div>
       {paintings.map((painting, index) => (
@@ -30,7 +48,7 @@ function Painting (props) {
           <img className= "painting-image" src={painting?.images?.sizes?.xs?.src} alt={painting?.title}/>
         </div>
       ))}
-      <Detail show={isOpen} data = {paintings[curPainting]} handleClose = {toggleModal}/>
+      <Detail show={isOpen} data = {props.paintings} index = {curPainting} next = {nextPainting} prev = {prevPainting} handleClose = {toggleModal}/>
     </div>
   )
 };

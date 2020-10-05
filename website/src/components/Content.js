@@ -27,7 +27,7 @@ class Content extends React.Component{
   }
 
   componentDidMount() {
-    this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings?size=5")
+    this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
   }
 
   componentDidUpdate(prevProps) {
