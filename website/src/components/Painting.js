@@ -16,7 +16,7 @@ function Painting (props) {
 
   //set index +1 to render next painting. if index reaches end of array do nothing
   const nextPainting = () => {
-    if(curPainting == props.paintings.length-1) {
+    if(curPainting === props.paintings.length-1) {
       return null
     } else {
       console.log("next");
@@ -26,7 +26,7 @@ function Painting (props) {
 
   //set index -1 to render previous painting. if index reaches beginning of array do nothing
   const prevPainting = () => {
-    if(curPainting == 0) {
+    if(curPainting === 0) {
       return null
     } else {
       console.log("prev");

@@ -6,13 +6,23 @@ import Content from './components/Content'
 class App extends Component {
 
   state = {
-    language: "de"
+    language: "de",
+    id: 0
   }
 
-  //handleChange = this.handleChange.bind(this);
+  tmpId = 0
 
-  handleChange= (event) => {    
+  handleLangChange= (event) => {    
     this.setState({language: event.target.value});  
+  }
+
+  handleInputChange = (event) => {
+    this.tmpId = event.target.value
+  }
+
+  submitInput = (event) => {
+    event.preventDefault();
+    this.setState({id: this.tmpId})
   }
 
   render() {
@@ -21,14 +31,18 @@ class App extends Component {
         <header className="App-header">
           <div className="App-header-content">
             <h1 className="header-title">CDA_</h1> 
-            <select className="header-lang-select" value={this.state.language} onChange={this.handleChange}>
+            <form className="header-input" onSubmit={this.submitInput}>
+              <input type="number" placeholder=" :id" onChange={this.handleInputChange}/> 
+              <input type="submit" value="go" />
+            </form>
+            <select className="header-lang-select" value={this.state.language} onChange={this.handleLangChange}>
               <option value="de">Deutsch</option>
               <option value="en">English</option>
             </select>
           </div>
         </header>
         <div className="App-main">
-          <Content language = {this.state.language}/>
+          <Content language = {this.state.language} id={this.state.id}/>
         </div>
         <footer className="App-footer">made by <a href="https://github.com/jomehr">Jan Mehr</a></footer>
       </div>

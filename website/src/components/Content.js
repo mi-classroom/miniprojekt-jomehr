@@ -33,8 +33,13 @@ class Content extends React.Component{
   componentDidUpdate(prevProps) {
     console.log(prevProps);
     if(this.props.language !== prevProps.language) {
-      console.log("fetching new data");
+      console.log("fetching new data by language");
       this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
+    }
+
+    if(this.props.id > 0 && this.props.id !== prevProps.id) {
+      console.log("fetching new data by id")
+      //this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings/" + this.props.id)
     }
   }
   

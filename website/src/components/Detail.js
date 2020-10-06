@@ -3,34 +3,6 @@ import {FiArrowRight, FiArrowLeft} from "react-icons/fi";
 
 class Detail extends Component {
 
-/*   state = {
-    curPainting: this.props.data,
-    counter: 0
-  } */
-
-/*   nextPainting = () => {
-    if(this.state.counter == this.state.curPainting.length-1) {
-      return null
-    } else {
-      console.log("next");
-      console.log(this.state.curPainting.length);
-      this.setState({
-        counter: this.state.counter+1
-      })
-    }
-  }
-
-  prevPainting = () => {
-    if(this.state.counter == 0) {
-      return null
-    } else {
-      console.log("prev");
-      this.setState({
-        counter: this.state.counter-1
-      })
-    }
-  } */
-
   render() {
     if(!this.props.show) {
       //make body scrollable again

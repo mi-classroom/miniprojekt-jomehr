@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Painting from "./Painting";
 import {ImImage} from "react-icons/im"
 
@@ -16,8 +16,12 @@ function onCollapsible(e) {
 function Collapsible(props) {
   const [amount, setAmount] = React.useState([])
 
+  
   //create new array with unique datings of paintings
   const dateList = [...new Set(props.items.map(data => data.dating.begin))]
+    
+
+  
 
   //set amount received from Painting
   const changeAmount = (amount) => {
