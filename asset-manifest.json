@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/miniprojekt-jomehr/static/css/main.b6b6c9f8.chunk.css",
+    "main.js": "/miniprojekt-jomehr/static/js/main.efa6a3ce.chunk.js",
+    "main.js.map": "/miniprojekt-jomehr/static/js/main.efa6a3ce.chunk.js.map",
+    "runtime-main.js": "/miniprojekt-jomehr/static/js/runtime-main.6684d617.js",
+    "runtime-main.js.map": "/miniprojekt-jomehr/static/js/runtime-main.6684d617.js.map",
+    "static/js/2.6d8a9a17.chunk.js": "/miniprojekt-jomehr/static/js/2.6d8a9a17.chunk.js",
+    "static/js/2.6d8a9a17.chunk.js.map": "/miniprojekt-jomehr/static/js/2.6d8a9a17.chunk.js.map",
+    "index.html": "/miniprojekt-jomehr/index.html",
+    "precache-manifest.41e69e454a4b3112a71f79b588d779be.js": "/miniprojekt-jomehr/precache-manifest.41e69e454a4b3112a71f79b588d779be.js",
+    "service-worker.js": "/miniprojekt-jomehr/service-worker.js",
+    "static/css/main.b6b6c9f8.chunk.css.map": "/miniprojekt-jomehr/static/css/main.b6b6c9f8.chunk.css.map",
+    "static/js/2.6d8a9a17.chunk.js.LICENSE.txt": "/miniprojekt-jomehr/static/js/2.6d8a9a17.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6684d617.js",
+    "static/js/2.6d8a9a17.chunk.js",
+    "static/css/main.b6b6c9f8.chunk.css",
+    "static/js/main.efa6a3ce.chunk.js"
+  ]
+}
