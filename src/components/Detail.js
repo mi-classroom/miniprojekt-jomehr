@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import {FiArrowRight, FiArrowLeft} from "react-icons/fi";
+import "../css/Detail.css";
 
 class Detail extends Component {
 
   render() {
+    console.log(this.props.show);
     if(!this.props.show) {
       //make body scrollable again
       document.body.style.overflow = ""
       return null;
     } else {
       //prevent scrollable background
-      var curPainting = this.props.data[this.props.index]
+      console.log(this.props.data);
+      var curPainting 
+      if (Array.isArray(this.props.data)) {
+        curPainting = this.props.data[this.props.index]
+      }else {
+        curPainting = this.props.data
+      }
       document.body.style.overflow = "hidden"
       return (
         <div className="modal-backdrop">

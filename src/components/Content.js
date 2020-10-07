@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsible from './Collabsible';
+import Detail from './Detail';
 
 
 const baseUrl = "https://project-bpo3-wechsler-backend.herokuapp.com/api/";
@@ -9,21 +10,36 @@ class Content extends React.Component{
 
   state = {
     items: [],
-    isLoaded: false
+    isLoaded: false,
+    isOpen: false
   };
 
   render() {
-    var {isLoaded, items} = this.state;
+    var {isLoaded, items, isOpen} = this.state;
 
     if(!isLoaded) {
       return <div>Loading...</div>
     } else {
-      return (
-        <div>
-          <Collapsible items = {items}/>
-        </div>
-      );
+      if(Array.isArray(items)) {
+        console.log("DATA IS ARRAY");
+        return (
+          <div>
+            <Collapsible items = {items}/>
+          </div>
+        );
+      }else{
+        console.log("DATA IS OBJECT");
+        console.log(this.state.isOpen);
+        return(
+          
+          <Detail show={!this.state.isOpen} data = {items} handleClose = {this.toggleModal}/>   
+        )
+      }
     }
+  }
+
+  toggleModal = () => {
+    this.setState({isOpen: !this.state.isOpen})
   }
 
   componentDidMount() {
@@ -39,7 +55,7 @@ class Content extends React.Component{
 
     if(this.props.id > 0 && this.props.id !== prevProps.id) {
       console.log("fetching new data by id")
-      //this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings/" + this.props.id)
+      this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings/" + this.props.id)
     }
   }
   

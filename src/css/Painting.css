@@ -1,0 +1,28 @@
+.card {
+  overflow: hidden;
+  float: left;
+  margin: 10px;
+  width: 140px;
+  height: 140px;
+  border: 1px solid black;
+}
+
+.painting-image {
+  object-fit: cover;
+  width: 140px;
+  height: 140px;
+}
+
+@media only screen and (max-width: 940px) {
+  .card {
+    margin: 0;
+    width: 33vw;
+    height: 33vw;
+    border: 1px solid white;
+  }
+
+  .painting-image {
+    width: 33vw;
+    height: 33vw;
+  }
+}

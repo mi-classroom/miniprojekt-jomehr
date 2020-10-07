@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Painting from "./Painting";
+import Detail from "./Detail";
 import {ImImage} from "react-icons/im"
+import '../css/Collapsible.css';
 
 function onCollapsible(e) {
   e.persist();
@@ -14,14 +16,9 @@ function onCollapsible(e) {
 }
 
 function Collapsible(props) {
-  const [amount, setAmount] = React.useState([])
+  const [amount, setAmount] = useState([])
+  const [isOpen, setIsOpen] = useState(false)
 
-  
-  //create new array with unique datings of paintings
-  const dateList = [...new Set(props.items.map(data => data.dating.begin))]
-    
-
-  
 
   //set amount received from Painting
   const changeAmount = (amount) => {
@@ -30,22 +27,33 @@ function Collapsible(props) {
   }
 
   //return a collapsible for each dating in dateList array and fill it with paintings
-  return dateList.map((year, index) => (
-    <div key={year} className="collapsible">
-      <div className="collapsible-header" onClick={e => onCollapsible(e)}> 
-        <h1 className="collapsible-title">{year}</h1>
-        <div className="collapsible-divider-1"/>
-        <div className="collapsible-img-div">
-          <ImImage className = "collapsible-image"/>
-          <p className="collapsible-number">{amount[index]}</p>
+  if(Array.isArray(props.items)) {
+    //create new array with unique datings of paintings
+    const dateList = [...new Set(props.items.map(data => data.dating.begin))]
+    return dateList.map((year, index) => (
+      <div key={year} className="collapsible">
+        <div className="collapsible-header" onClick={e => onCollapsible(e)}> 
+          <h1 className="collapsible-title">{year}</h1>
+          <div className="collapsible-divider-1"/>
+          <div className="collapsible-img-div">
+            <ImImage className = "collapsible-image"/>
+            <p className="collapsible-number">{amount[index]}</p>
+          </div>
+          <div className="collapsible-divider-2"/>
         </div>
-        <div className="collapsible-divider-2"/>
+        <div className="collapsible-content">
+          <Painting paintings = {props.items} year = {year} onChangeAmount = {changeAmount} />
+        </div>
       </div>
-      <div className="collapsible-content">
-        <Painting paintings = {props.items} year = {year} onChangeAmount = {changeAmount} />
-      </div>
-    </div>
-  ));
+    ));
+  } else {
+    
+    var tmpArr = []
+    return (
+      <Detail show={true} data = {props.items} index={0}/>
+    )
+  }
 }
+    
 
 export default Collapsible;

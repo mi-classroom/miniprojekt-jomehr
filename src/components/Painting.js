@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Detail from './Detail';
+import "../css/Painting.css";
 
 function Painting (props) {
   const [isOpen, setIsOpen] = useState(false)
@@ -44,7 +45,7 @@ function Painting (props) {
     <div>
       {paintings.map((painting, index) => (
         <div className="card" key={index} onClick={()=>toggleModal(index)}>
-          <img className= "painting-image" src={painting?.images?.sizes?.xs?.src} alt={painting?.title}/>
+          <img className= "painting-image" src={painting?.images?.sizes?.s?.src} alt={painting?.title}/>
         </div>
       ))}
       <Detail show={isOpen} data = {props.paintings} index = {curPainting} next = {nextPainting} prev = {prevPainting} handleClose = {toggleModal}/>
