@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Route, Switch} from 'react-router-dom'
+import {Route} from 'react-router-dom'
 import './css/App.css';
 import Content from './components/Content'
 
@@ -24,7 +24,7 @@ class App extends Component {
     event.preventDefault();
     this.setState({id: this.tmpId})
   }
-
+  
   render() {
     return (
       <div className="App">
@@ -42,9 +42,11 @@ class App extends Component {
           </div>
         </header>
         <div className="App-main">
-          <Content language = {this.state.language} id={this.state.id}/>
+          <Route path="/" render={(props) => ( 
+            <Content {...props} language = {this.state.language} id={this.state.id}/>
+          )}
+          />
         </div>
-        <footer className="App-footer">made by <a href="https://github.com/jomehr">Jan Mehr</a></footer>
       </div>
     );
   } 

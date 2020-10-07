@@ -1,7 +1,5 @@
 import React from 'react';
 import Collapsible from './Collabsible';
-import Detail from './Detail';
-
 
 const baseUrl = "https://project-bpo3-wechsler-backend.herokuapp.com/api/";
 const apiVersion = "v2/"
@@ -13,6 +11,7 @@ class Content extends React.Component{
     isLoaded: false,
     isOpen: false
   };
+
 
   render() {
     var {isLoaded, items, isOpen} = this.state;
@@ -32,7 +31,6 @@ class Content extends React.Component{
         console.log(isOpen);
         return(
           <Collapsible items = {new Array(items)}/>
-          //<Detail show={!this.state.isOpen} data = {items} handleClose = {this.toggleModal}/>   
         )
       }
     }
@@ -43,14 +41,13 @@ class Content extends React.Component{
   }
 
   componentDidMount() {
-    this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
+    this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings" + this.props.location.search)
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
     if(this.props.language !== prevProps.language) {
       console.log("fetching new data by language");
-      this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings")
+      this.fetchData(baseUrl + apiVersion + this.props.language + "/paintings/" + this.props.location.search)
     }
 
     if(this.props.id > 0 && this.props.id !== prevProps.id) {
@@ -60,7 +57,7 @@ class Content extends React.Component{
   }
   
   fetchData(url) {
-    console.log("fetching");
+    console.log("fetching data");
     fetch(url)
       .then(res => res.json())
       .then((data) => this.setState({
