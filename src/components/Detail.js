@@ -12,9 +12,11 @@ class Detail extends Component {
       return null;
     } else {
       //prevent scrollable background
-      console.log(this.props.data);
+      //console.log(this.props.data);
+      
       var curPainting 
       if (Array.isArray(this.props.data)) {
+        console.log(this.props.index);
         curPainting = this.props.data[this.props.index]
       }else {
         curPainting = this.props.data
@@ -35,11 +37,12 @@ class Detail extends Component {
                 <h6 className="modal-info-dim">
                   {curPainting.structuredDimension?.height + " x " + curPainting.structuredDimension?.width + " cm"}
                 </h6>
+                <h6 className="modal-info-id">{curPainting.objectId} </h6>
                 <button className="modal-info-button" onClick={this.props.handleClose}> X </button>
-                <button className="modal-info-prev"> 
-                  <FiArrowLeft className="modal-info-arrows" onClick={this.props.prev}/>
+                <button id="arr-left" className="modal-info-prev"> 
+                  <FiArrowLeft  className="modal-info-arrows" onClick={this.props.prev}/>
                 </button>
-                <button className="modal-info-next"> 
+                <button id="arr-right" className="modal-info-next"> 
                   <FiArrowRight className="modal-info-arrows" onClick={this.props.next}/> 
                 </button>
               </div>

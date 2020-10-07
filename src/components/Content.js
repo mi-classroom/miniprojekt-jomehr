@@ -29,10 +29,10 @@ class Content extends React.Component{
         );
       }else{
         console.log("DATA IS OBJECT");
-        console.log(this.state.isOpen);
+        console.log(isOpen);
         return(
-          
-          <Detail show={!this.state.isOpen} data = {items} handleClose = {this.toggleModal}/>   
+          <Collapsible items = {new Array(items)}/>
+          //<Detail show={!this.state.isOpen} data = {items} handleClose = {this.toggleModal}/>   
         )
       }
     }

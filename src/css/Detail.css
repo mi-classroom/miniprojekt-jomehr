@@ -69,6 +69,11 @@
   bottom: 60px;
 }
 
+.modal-info-id {
+  position: absolute;
+  bottom: 40px;
+}
+
 .modal-info-button {
   background-color:  #b4b4b4;
   position: absolute;
@@ -146,6 +151,12 @@
   .modal-info-dim {
     position: relative;
     top: 40px;
+    padding-bottom: 20px;
+  }
+
+  .modal-info-id {
+    position: relative;
+    top: 10px;
     padding-bottom: 20px;
   }
 

@@ -17,9 +17,11 @@ function Painting (props) {
 
   //set index +1 to render next painting. if index reaches end of array do nothing
   const nextPainting = () => {
-    if(curPainting === props.paintings.length-1) {
+    if(curPainting === paintings.length-1) {
       return null
     } else {
+      if(curPainting+1 === paintings.length-1) document.getElementById("arr-right").style.display="none"
+      document.getElementById("arr-left").style.display="initial"
       console.log("next");
       setCurPainting(curPainting+1)
     }
@@ -30,6 +32,8 @@ function Painting (props) {
     if(curPainting === 0) {
       return null
     } else {
+      if(curPainting-1 === 0) document.getElementById("arr-left").style.display="none"
+      document.getElementById("arr-right").style.display="initial"
       console.log("prev");
       setCurPainting(curPainting-1)
     }
@@ -48,7 +52,7 @@ function Painting (props) {
           <img className= "painting-image" src={painting?.images?.sizes?.s?.src} alt={painting?.title}/>
         </div>
       ))}
-      <Detail show={isOpen} data = {props.paintings} index = {curPainting} next = {nextPainting} prev = {prevPainting} handleClose = {toggleModal}/>
+      <Detail show={isOpen} data = {paintings} index = {curPainting} next = {nextPainting} prev = {prevPainting} handleClose = {toggleModal}/>
     </div>
   )
 };
