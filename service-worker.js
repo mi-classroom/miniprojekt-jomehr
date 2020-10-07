@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/miniprojekt-jomehr/precache-manifest.41e69e454a4b3112a71f79b588d779be.js"
+  "/miniprojekt-jomehr/precache-manifest.417fb2eae5e836dc18f217410566ca3a.js"
 );
 
 self.addEventListener('message', (event) => {
