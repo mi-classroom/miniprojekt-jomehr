@@ -34,4 +34,6 @@ Es besteht die Möglichkeit sich, innerhalb der Detailansicht, anhand der Pfeile
 
 Die Website wurde sowohl für Desktops, als auch für Mobile Devices designed. Es existiert ein Breakpoint bei 940px Breite.
 
+### Backend
+cn: das Backend zum Projekt liegt hier https://github.com/mi-classroom/projekt-bpo3-wechsler-backend-jomehr
 
